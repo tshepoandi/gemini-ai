@@ -9,7 +9,8 @@ export async function sendPromptController(req, res) {
         const model = genAI.getGenerativeModel({ model: "gemini-pro" });
         const prompt = req.body.prompt
         const result = await model.generateContent(prompt)
-        const response = await response.text()
+        const response = await result.response
+        const text = await response.text()
         console.log(text)
         res.status(200).json({ generateText: text });
     } catch (error) {
