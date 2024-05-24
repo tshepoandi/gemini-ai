@@ -1,18 +1,20 @@
 import dotenv from 'dotenv';
 import express from 'express';
+import cors from 'cors'
 import promptRoutes from '../routes/promptRoute.js'
+import geniusRoutes from '../routes/genuisRoute.js'
 dotenv.config()
 
 const app = express();
 const port = process.env.PORT || 3000
 
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-})
+app.use(cors())
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use('/api', promptRoutes)
+app.use('/gemini', promptRoutes)
+app.use('/genius', geniusRoutes)
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })
