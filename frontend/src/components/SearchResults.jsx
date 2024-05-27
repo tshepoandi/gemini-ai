@@ -32,7 +32,7 @@ const SearchResults = () => {
       <ul className='grid grid-cols-1 '>
         {searchData.map((item, index) => (
           <li key={index.id} className='my-12'>
-            <SongLayout artist={item.artist} title={item.title} thumbnail={item.thumbnail}/>
+            <SongLayout id={item.id} artist={item.artist} title={item.title} thumbnail={item.thumbnail}/>
           </li>
         ))}
       </ul>

@@ -1,3 +1,6 @@
+import {Link} from 'react-router-dom'
+
+
 const SongLayout = (props) => {
   return (
     <div >
@@ -7,7 +10,9 @@ const SongLayout = (props) => {
             <h2 className="card-title">{props.title}</h2>
             <p>{props.artist}</p>
             <div className="card-actions justify-end">
-                <button className="btn btn-primary">Song Knowledge</button>
+                <button className="btn btn-primary">
+                  <Link to={`/song/${props.id}`}>Song Knowledge</Link>
+                </button>
             </div>
             </div>
         </div>

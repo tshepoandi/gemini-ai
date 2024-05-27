@@ -1,15 +1,19 @@
 import Navbar from './components/Navbar'
 import './App.css'
-// import SendPrompt from './components/SendPrompt'
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import SearchResults from './components/SearchResults'
+import SongLyrics from './pages/SongLyrics'
 function App() {
   
 
   return (
-    <div className=''>
+    <BrowserRouter>
       <Navbar/>
-      <SearchResults/>
-    </div>
+      <Routes>
+        <Route path="/" element={<SearchResults/>}/>
+        <Route path="/song/:id" element={<SongLyrics/>}/>
+      </Routes>
+    </BrowserRouter>
   )
 }
 
