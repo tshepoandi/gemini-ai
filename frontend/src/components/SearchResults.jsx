@@ -1,5 +1,6 @@
 // import searchResults from '../assets/resultExample.json'
 import { useEffect,useState } from 'react'
+import SongLayout from './SongLayout';
 
 
 const SearchResults = () => {
@@ -18,14 +19,8 @@ const SearchResults = () => {
       <h1>Search Results</h1>
       <ul>
         {searchData.map((item, index) => (
-          <li key={index} className='flex justify-between w-[75%] my-12'>
-            <div className='text-start'>
-                <h1 className='text-2xl'>{item.title}</h1>
-                <p>{item.artist}</p>
-            </div>
-            <div>
-                <img src={item.thumbnail} alt="song thumbnail"></img>
-            </div>
+          <li key={index.id} className='my-12'>
+            <SongLayout artist={item.artist} title={item.title} thumbnail={item.thumbnail}/>
           </li>
         ))}
       </ul>
