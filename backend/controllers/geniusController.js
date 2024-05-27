@@ -4,7 +4,7 @@ const Client = new genius.Client(process.env.GENUIS_API_KEY)
 
 const searchController = async(req, res) => {
     try {
-        const searches = await Client.songs.search("if looks could kill");
+        const searches = await Client.songs.search(req.body.search);
         const responseData = searches.map(song => ({
             id: song.id,
             title: song.title,

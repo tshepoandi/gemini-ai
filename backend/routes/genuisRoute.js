@@ -3,6 +3,6 @@ import geniusSearchController from '../controllers/geniusController.js'
 
 
 const router = express.Router()
-router.get('/search', geniusSearchController)
+router.post('/search', geniusSearchController)
 
 export default router
