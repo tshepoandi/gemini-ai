@@ -11,7 +11,7 @@ const SongLayout = (props) => {
             <p>{props.artist}</p>
             <div className="card-actions justify-end">
                 <button className="btn btn-primary">
-                  <Link to={`/song/${props.id}`}>Song Knowledge</Link>
+                  <Link to={`/song/${props.title}+${props.artist}`}>Song Knowledge</Link>
                 </button>
             </div>
             </div>

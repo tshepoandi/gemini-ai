@@ -11,7 +11,7 @@ function App() {
       <Navbar/>
       <Routes>
         <Route path="/" element={<SearchResults/>}/>
-        <Route path="/song/:id" element={<SongLyrics/>}/>
+        <Route path="/song/:songDetails" element={<SongLyrics/>}/>
       </Routes>
     </BrowserRouter>
   )
