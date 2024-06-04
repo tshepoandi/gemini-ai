@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 const SongLyrics = () => {
   const [songData,setSongData] = useState(null)
   const {songDetails} = useParams()
+  const [translation,setTranslation] = useState("")
   const decodedURI = decodeURIComponent(songDetails)
 
 
@@ -31,6 +32,28 @@ const SongLyrics = () => {
 
     fetchData();
   }, [decodedURI]);
+
+  useEffect(()=>{
+    // generateText
+    try {
+      const fetchTranslation = async()=> {
+        const response = await fetch('http://localhost:3000/gemini/send-prompt', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ prompt: songData.lyrics })
+        });
+        const data = await response.json();
+        setTranslation(data);
+      }
+      if(songData?.lyrics){
+        fetchTranslation()
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  },[songData])
   return (
     <div className='mx-4'>
       <div>
@@ -55,7 +78,7 @@ const SongLyrics = () => {
                     Translation
                   </div>
                   <div className="collapse-content">
-                    {/* <p>Hello</p> */}
+                    {translation.generateText}
                   </div>
                 </div>
               </div>
