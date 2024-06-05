@@ -1,5 +1,4 @@
 import genius from 'genius-lyrics'
-import { getSongById, getLyrics } from 'genius-lyrics-api';
 
 const apiKey = process.env.GENUIS_API_KEY
 const Client = new genius.Client(apiKey)
@@ -35,17 +34,3 @@ export const getSongController = async(req, res) => {
         res.status(500).json({ error: "Internal server error" });
     }
 }
-
-
-// export const getSongByIdController = async(req, res) => {
-//     try {
-//         const { id } = req.params;
-//         const song = await getSongById(8482044, toString(apiKey));
-//         res.status(200).json(song);
-//     } catch (err) {
-//         console.log(err);
-//     }
-// }
-
-
-// console.log("About the Song:\n", firstSong, "\n");
